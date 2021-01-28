@@ -1,24 +1,25 @@
-#######1989. 초심자의 회문 검사
-import math
+#1989. 초심자의 회문 검사
 
 T = int(input())
 
 str = list()
-
 for test_case in range(T):
     word = input()
     str.append(word)
 
-
+yes=1
 for i in range(len(str)):
-    num = int(len(str[i]) / 2)
-    print(str[i][num], num)
+    num = len(str[i])
 
     for j in range(num):
-        if str[i][j]==str[i][num+1+j]:
-            # print(str[i][j], str[i][num+j])
-            print("#{} {}" .format(i+1, 1))
-            break
+        if str[i][j] == str[i][num-1-j]:
+            yes = 1
         else:
-            print("#{} {}" .format(i+1, 0))
-            break
+            yes = 0
+
+    if yes == 1:
+        print("#{} {}".format(i + 1, 1))
+    else:
+        print("#{} {}".format(i + 1, 0))
+
+
